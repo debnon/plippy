@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:16
+    container_name: plippy-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: plippy
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - plippy_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d plippy"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: plippy-app
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg://postgres:postgres@db:5432/plippy
+    volumes:
+      - .:/app
+    command: python example.py
+
+volumes:
+  plippy_postgres_data:
