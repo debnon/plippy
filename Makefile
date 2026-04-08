@@ -1,19 +1,30 @@
-.PHONY: up run down clean logs ps
+.PHONY: up run down clean logs ps build test test-integration
+
+COMPOSE := $(shell docker compose version >/dev/null 2>&1 && echo "docker compose" || echo "docker-compose")
 
 up:
-	docker compose up -d db
+	$(COMPOSE) up -d db
 
-run:
-	docker compose run --rm app
+build:
+	$(COMPOSE) build app
+
+run: build
+	$(COMPOSE) run --rm app
 
 down:
-	docker compose down
+	$(COMPOSE) down
 
 clean:
-	docker compose down -v
+	$(COMPOSE) down -v
 
 logs:
-	docker compose logs -f db
+	$(COMPOSE) logs -f db
 
 ps:
-	docker compose ps
+	$(COMPOSE) ps
+
+test: build
+	$(COMPOSE) run --rm app sh -c 'PYTHONPATH=/app pytest -q -m "not integration"'
+
+test-integration: build
+	$(COMPOSE) run --rm app sh -c 'PYTHONPATH=/app pytest -q -m integration'

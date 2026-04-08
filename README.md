@@ -35,6 +35,20 @@ make ps
 make logs
 ```
 
+## Testing
+
+Run fast tests (unit + sqlite model test):
+
+```bash
+make test
+```
+
+Run Postgres integration tests:
+
+```bash
+make test-integration
+```
+
 ## Run with Docker Compose
 
 Start Postgres in the background:
