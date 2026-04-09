@@ -27,11 +27,12 @@ services:
         condition: service_healthy
     environment:
       DATABASE_URL: postgresql+psycopg://postgres:postgres@db:5432/plippy
+      PYTHONPATH: /app/src
     volumes:
       - .:/app
     ports:
       - "8000:8000"
-    command: python example.py
+    command: python -m plippy.scripts.example
 
 volumes:
   plippy_postgres_data:

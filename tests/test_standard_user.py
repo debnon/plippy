@@ -2,7 +2,7 @@ from decimal import Decimal
 
 import pytest
 
-from StandardUser import StandardUser
+from plippy.domain.standard_user import StandardUser
 
 
 def test_deposit_increases_funds() -> None:

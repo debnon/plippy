@@ -17,8 +17,7 @@ SessionLocal = sessionmaker(bind=engine)
 
 
 def init_db() -> None:
-    import models
+    from plippy.models import User
 
-    _ = models.User
-
+    _ = User
     Base.metadata.create_all(engine)

@@ -9,10 +9,10 @@ build:
 	$(COMPOSE) build app
 
 run: build
-	$(COMPOSE) run --rm app
+	$(COMPOSE) run --rm app sh -c 'PYTHONPATH=/app/src python -m plippy.scripts.example'
 
 api: build
-	$(COMPOSE) run --rm --service-ports app sh -c 'PYTHONPATH=/app uvicorn api:app --host 0.0.0.0 --port 8000'
+	$(COMPOSE) run --rm --service-ports app sh -c 'PYTHONPATH=/app/src uvicorn plippy.api:app --host 0.0.0.0 --port 8000'
 
 down:
 	$(COMPOSE) down
@@ -27,7 +27,7 @@ ps:
 	$(COMPOSE) ps
 
 test: build
-	$(COMPOSE) run --rm app sh -c 'PYTHONPATH=/app pytest -q -m "not integration"'
+	$(COMPOSE) run --rm app sh -c 'PYTHONPATH=/app/src pytest -q -m "not integration"'
 
 test-integration: build
-	$(COMPOSE) run --rm app sh -c 'PYTHONPATH=/app pytest -q -m integration'
+	$(COMPOSE) run --rm app sh -c 'PYTHONPATH=/app/src pytest -q -m integration'

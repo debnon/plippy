@@ -5,8 +5,8 @@ import pytest
 from sqlalchemy import create_engine, select
 from sqlalchemy.orm import Session
 
-from db import Base
-from models import User
+from plippy.db import Base
+from plippy.models import User
 
 
 @pytest.mark.integration

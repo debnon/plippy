@@ -3,7 +3,7 @@ from decimal import Decimal
 from sqlalchemy import Numeric, String
 from sqlalchemy.orm import Mapped, mapped_column
 
-from db import Base
+from plippy.db import Base
 
 
 class User(Base):

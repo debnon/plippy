@@ -1,12 +1,12 @@
-from decimal import Decimal
 from contextlib import asynccontextmanager
+from decimal import Decimal
 
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 from sqlalchemy import select
 
-from db import SessionLocal, init_db
-from models import User
+from plippy.db import SessionLocal, init_db
+from plippy.models import User
 
 
 @asynccontextmanager

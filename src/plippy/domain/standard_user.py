@@ -2,7 +2,7 @@ from decimal import Decimal
 
 
 class StandardUser:
-    """"User class"""
+    """Simple user domain object for local business-rule validation."""
 
     name: str = "example"
     funds: Decimal = Decimal("0.00")
@@ -20,8 +20,6 @@ class StandardUser:
         deposit = self._validate_positive_amount(deposit, "Deposit")
         self.funds += deposit
         return deposit
-    
-    # @classmethod
+
     def getName(self) -> str:
         return self.name
-

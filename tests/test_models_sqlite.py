@@ -3,8 +3,8 @@ from decimal import Decimal
 from sqlalchemy import create_engine, select
 from sqlalchemy.orm import Session
 
-from db import Base
-from models import User
+from plippy.db import Base
+from plippy.models import User
 
 
 def test_user_model_can_roundtrip_in_sqlite() -> None:
