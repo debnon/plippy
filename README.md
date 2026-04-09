@@ -10,6 +10,7 @@ Application code lives under `src/plippy/`.
 - `src/plippy/db.py`: SQLAlchemy engine/session setup
 - `src/plippy/models.py`: ORM models
 - `src/plippy/domain/`: domain objects and rules
+- `src/plippy/agents/`: pluggable orchestration agents (`echo`, `join`, `web_fetch`, `pdf_extract`)
 - `tests/`: unit and integration tests
 
 ## Run with Make

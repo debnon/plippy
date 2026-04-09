@@ -4,3 +4,6 @@ pytest
 fastapi
 uvicorn
 alembic
+httpx
+beautifulsoup4
+pypdf
