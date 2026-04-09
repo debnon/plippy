@@ -29,6 +29,8 @@ services:
       DATABASE_URL: postgresql+psycopg://postgres:postgres@db:5432/plippy
     volumes:
       - .:/app
+    ports:
+      - "8000:8000"
     command: python example.py
 
 volumes:

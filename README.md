@@ -16,6 +16,22 @@ Run the Python example once (creates table and inserts a user):
 make run
 ```
 
+Run the API server:
+
+```bash
+make api
+```
+
+Then hit endpoints:
+
+```bash
+curl http://localhost:8000/health
+curl http://localhost:8000/users
+curl -X POST http://localhost:8000/users \
+	-H "Content-Type: application/json" \
+	-d '{"name":"ben","funds":"25.50"}'
+```
+
 Stop services:
 
 ```bash

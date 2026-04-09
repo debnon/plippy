@@ -1,4 +1,4 @@
-.PHONY: up run down clean logs ps build test test-integration
+.PHONY: up run api down clean logs ps build test test-integration
 
 COMPOSE := $(shell docker compose version >/dev/null 2>&1 && echo "docker compose" || echo "docker-compose")
 
@@ -10,6 +10,9 @@ build:
 
 run: build
 	$(COMPOSE) run --rm app
+
+api: build
+	$(COMPOSE) run --rm --service-ports app sh -c 'PYTHONPATH=/app uvicorn api:app --host 0.0.0.0 --port 8000'
 
 down:
 	$(COMPOSE) down

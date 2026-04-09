@@ -1,3 +1,5 @@
 psycopg[binary]
 sqlalchemy
 pytest
+fastapi
+uvicorn
