@@ -1,4 +1,5 @@
 from decimal import Decimal
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
@@ -8,7 +9,13 @@ from db import SessionLocal, init_db
 from models import User
 
 
-app = FastAPI(title="plippy API")
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    init_db()
+    yield
+
+
+app = FastAPI(title="plippy API", lifespan=lifespan)
 
 
 class CreateUserRequest(BaseModel):
@@ -20,11 +27,6 @@ class UserResponse(BaseModel):
     id: int
     name: str
     funds: Decimal
-
-
-@app.on_event("startup")
-def on_startup() -> None:
-    init_db()
 
 
 @app.get("/health")
