@@ -14,10 +14,3 @@ class Base(DeclarativeBase):
 database_url = os.getenv("DATABASE_URL", DEFAULT_DATABASE_URL)
 engine = create_engine(database_url, echo=False)
 SessionLocal = sessionmaker(bind=engine)
-
-
-def init_db() -> None:
-    from plippy.models import User
-
-    _ = User
-    Base.metadata.create_all(engine)

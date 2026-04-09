@@ -1,21 +1,14 @@
-from contextlib import asynccontextmanager
 from decimal import Decimal
 
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 from sqlalchemy import select
 
-from plippy.db import SessionLocal, init_db
+from plippy.db import SessionLocal
 from plippy.models import User
 
 
-@asynccontextmanager
-async def lifespan(_: FastAPI):
-    init_db()
-    yield
-
-
-app = FastAPI(title="plippy API", lifespan=lifespan)
+app = FastAPI(title="plippy API")
 
 
 class CreateUserRequest(BaseModel):

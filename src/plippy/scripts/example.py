@@ -2,7 +2,7 @@ from decimal import Decimal
 
 from sqlalchemy.exc import SQLAlchemyError
 
-from plippy.db import SessionLocal, init_db
+from plippy.db import SessionLocal
 from plippy.domain.standard_user import StandardUser
 from plippy.models import User
 
@@ -26,11 +26,10 @@ def main() -> None:
     print(user2.funds)
 
     try:
-        init_db()
         saved_user = save_user(user2)
         print(f"Saved user {saved_user.id}: {saved_user.name} with funds {saved_user.funds}")
     except SQLAlchemyError as exc:
-        print("Database connection failed. Set DATABASE_URL to a running Postgres instance.")
+        print("Database operation failed. Run migrations and verify DATABASE_URL.")
         print(f"Details: {exc.__class__.__name__}: {exc}")
 
 

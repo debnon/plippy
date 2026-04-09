@@ -3,3 +3,4 @@ sqlalchemy
 pytest
 fastapi
 uvicorn
+alembic

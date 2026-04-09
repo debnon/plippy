@@ -32,6 +32,12 @@ Run the API server:
 make api
 ```
 
+Apply migrations explicitly:
+
+```bash
+make migrate
+```
+
 Then hit endpoints:
 
 ```bash
@@ -75,6 +81,20 @@ Run Postgres integration tests:
 
 ```bash
 make test-integration
+```
+
+## Migrations (Alembic)
+
+Create a new migration after model changes:
+
+```bash
+make revision
+```
+
+Apply migrations:
+
+```bash
+make migrate
 ```
 
 ## Run with Docker Compose
