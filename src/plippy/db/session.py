@@ -2,15 +2,10 @@ import os
 from collections.abc import Generator
 
 from sqlalchemy import create_engine
-from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
+from sqlalchemy.orm import Session, sessionmaker
 
 
 DEFAULT_DATABASE_URL = "postgresql+psycopg://postgres:postgres@localhost:5432/plippy"
-
-
-class Base(DeclarativeBase):
-    pass
-
 
 database_url = os.getenv("DATABASE_URL", DEFAULT_DATABASE_URL)
 engine = create_engine(database_url, echo=False)
