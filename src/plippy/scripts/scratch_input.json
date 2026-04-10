@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "  Alice Johnson  ",
+      "email": "ALICE@example.com",
+      "bio": "Loves Python, APIs, and   clean code."
+    },
+    {
+      "id": 2,
+      "name": "bob smith",
+      "email": " Bob.Smith@Example.COM ",
+      "bio": "Enjoys async io + data pipelines!"
+    },
+    {
+      "id": 3,
+      "name": "  ChloE   Nguyen",
+      "email": "chloe.nguyen@example.com",
+      "bio": "Writes tests; fixes bugs; ships features."
+    }
+  ]
+}

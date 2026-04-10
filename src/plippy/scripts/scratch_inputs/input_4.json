@@ -1,0 +1,7 @@
+{
+  "source": "batch",
+  "records": [
+    {"id": 31, "text": "Nightly ETL start", "score": 0.95},
+    {"id": 32, "text": "Nightly ETL finish", "score": 0.96}
+  ]
+}

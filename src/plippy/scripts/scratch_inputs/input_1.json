@@ -1,0 +1,8 @@
+{
+  "source": "web",
+  "records": [
+    {"id": 1, "text": "  Hello from API  ", "score": 0.91},
+    {"id": 2, "text": "async tasks are fun", "score": 0.82},
+    {"id": 3, "text": "  Normalize ME please  ", "score": 0.75}
+  ]
+}

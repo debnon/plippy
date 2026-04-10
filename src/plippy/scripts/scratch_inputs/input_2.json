@@ -1,0 +1,8 @@
+{
+  "source": "mobile",
+  "records": [
+    {"id": 10, "text": "Push notification opened", "score": 0.44},
+    {"id": 11, "text": " user clicked CTA ", "score": 0.63},
+    {"id": 12, "text": "Payment failed at step 2", "score": 0.29}
+  ]
+}

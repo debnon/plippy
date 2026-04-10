@@ -1,0 +1,9 @@
+{
+  "source": "email",
+  "records": [
+    {"id": 21, "text": "Weekly digest delivered", "score": 0.87},
+    {"id": 22, "text": "  bounce detected for user  ", "score": 0.31},
+    {"id": 23, "text": "reply received", "score": 0.72},
+    {"id": 24, "text": "link tracked", "score": 0.65}
+  ]
+}
